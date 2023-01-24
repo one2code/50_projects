@@ -1,18 +1,16 @@
-import {useState} from 'react'
-
-
+import { useState, useEffect } from "react";
 
 const Cups: React.FC = () => {
 
-    const [selected, setSelected] = useState<number[]>([])
+	const [selected, setSelected] = useState<number[]>([]);
 
-    const handleClick = (index:number) => {
-        if (selected.includes(index)) {
-            setSelected(selected.filter((item) => item !== index))
-        } else {
-            setSelected([...selected, index])
-        }
-    }
+	const handleClick = (index: number) => {
+		if (selected.includes(index)) {
+			setSelected(selected.filter((item) => item !== index));
+		} else {
+			setSelected([...selected, index]);
+		}
+	};
 	return (
 		<>
 			<div className="cup">
@@ -26,17 +24,23 @@ const Cups: React.FC = () => {
 					20%
 				</div>
 			</div>
-			<p className="text">
-				Select how many glasses of water you've had
-			</p>
-            <div className="cups">
-                {Array(8).fill(null).map((_, index) => (
-                    <div className={`cup cup-small ${selected.includes(index) ? 'full' : ''}`} onClick={() => handleClick(index)} key={index}>
-                        250 ml
-                    </div>
-                ))}
-            </div>
+			<p className="text">Select how many glasses of water you've had</p>
+			<div className="cups">
+				{Array(8)
+					.fill(null)
+					.map((_, index) => (
+						<div
+							className={`cup cup-small ${
+								selected.includes(index) ? "full" : ""
+							}`}
+							onClick={() => handleClick(index)}
+							key={index}
+						>
+							250 ml
+						</div>
+					))}
+			</div>
 		</>
 	);
-}
+};
 export default Cups;
