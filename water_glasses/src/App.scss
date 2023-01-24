@@ -1,48 +1,118 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat&family=Mulish&family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=Montserrat&family=Mulish&family=Roboto&display=swap");
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
 $backgroundColor: #3494e4;
-$color: #fff;
+$white: #fff;
 $borderColor: #144fc6;
+$fillColor: #6ab3f8;
+
+@mixin flexCenter {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+@mixin border-radius($radius) {
+	border-radius: $radius;
+}
 
 #root {
-  
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  margin: 20px;
-  border: 5px solid red;
+	@include flexCenter;
+	flex-direction: column;
+	overflow: hidden;
+	margin: 20px;
 }
 
 body {
-  background-color: $backgroundColor;
-  color: $color;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 16px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 5px dotted red;
-  margin-top: 2rem;
- 
+	background: $backgroundColor;
+	color: $white;
+	font-family: "Montserrat", sans-serif;
+	font-size: 16px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 2rem;
 }
 
-h1{
-  margin: 10px 0 0;
+h1 {
+	margin: 10px 0 0;
 }
 
 h3 {
-  font-weight: 400;
-  margin: 10px 0;
+	font-weight: 400;
+	margin: 10px 0;
+}
+
+p {
+	text-align: center;
+	margin-bottom: 10px;
 }
 
 .cup {
-  background-color: $color; 
+	@include flexCenter;
+	background: $white;
+	border: 4px solid $borderColor;
+	color: $borderColor;
+	border-radius: 0 0 40px 40px;
+	height: 330px;
+	width: 150px;
+	margin: 30px;
+	flex-direction: column;
+	overflow: hidden;
+	text-align: center;
+
+	&.cup-small {
+		height: 95px;
+		width: 50px;
+		border-radius: 0 0 15px 15px;
+		background: rgba(255, 255, 255, 0.9);
+		cursor: pointer;
+		font-size: 14px;
+		text-align: center;
+		margin: 5px;
+		transition: 0.3s ease-in-out;
+
+		&.full {
+			background: $fillColor;
+			color: $white;
+		}
+	}
+}
+
+.cups {
+	@include flexCenter;
+	flex-wrap: wrap;
+	width: 280px;
+}
+
+.remained {
+	@include flexCenter;
+	flex-direction: column;
+	text-align: center;
+	flex: 1;
+	transition: 0.3s ease;
+
+	&.span {
+		font-size: 1.5rem;
+		font-weight: bold;
+	}
+
+	&.small {
+		font-size: 1rem;
+	}
+}
+
+.percentage {
+	background-color: $backgroundColor;
+	color: $white;
+	@include flexCenter;
+	font-size: 2rem;
+	font-weight: bold;
+	height: 0;
+	transition: 0.3s ease;
 }

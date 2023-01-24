@@ -6,14 +6,14 @@ function Cups() {
 					<div className="span" id="litres">
 						1.5L
 					</div>
-					<small>Remained</small>
+					<small>Remaining</small>
 				</div>
 				<div className="percentage" id="percentage">
 					20%
 				</div>
 			</div>
 			<p className="text">
-				Select how many glasses of water that you have drank
+				Select how many glasses of water you've had
 			</p>
             <div className="cups">
                 <div className="cup cup-small full">250 ml</div>
