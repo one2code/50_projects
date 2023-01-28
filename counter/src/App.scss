@@ -7,40 +7,50 @@
 $background: #8e44ad;
 $textcolor: #fff;
 
-body, #root {
+@mixin flex-center() {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+@mixin flex-center-col() {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+body,
+#root {
 	background-color: $background;
 	color: $textcolor;
 	font-family: "Roboto Mono", sans-serif;
 	font-size: 18px;
-  display: flex;
-	align-items: center;
-  justify-content: center;
-  height: 100vh;
-  margin: 0;
-  overflow: hidden;
+	@include flex-center();
+	height: 100vh;
+	margin: 0;
+	overflow: hidden;
 }
 
 .counter-container {
-  max-height: 80%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0px 40px;
-  text-align: center;
+	max-height: 80%;
+	display: flex;
+	@include flex-center-col();
+	margin: 0px 40px;
 
-
-  > .counter {
-    font-size: 60px;
-    margin-top: 10px;
-  }
+	> .counter {
+		font-size: 60px;
+		margin-top: 10px;
+	}
 }
 
-@media(max-width: 580px) {
-  body, #root {
-    flex-direction: column;
-  }
-  .counter-container {
-    max-height: 100%;
-    margin: 7px;
-  }
+@media (max-width: 580px) {
+	body,
+	#root {
+		flex-direction: column;
+	}
+	.counter-container {
+		max-height: 100%;
+		margin: 7px;
+	}
 }
