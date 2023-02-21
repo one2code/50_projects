@@ -1,3 +1,4 @@
+import BigCup from '../components/BigCup';
 import { useState} from "react";
 
 const Cups: React.FC = () => {
@@ -11,6 +12,16 @@ const Cups: React.FC = () => {
 			setSelected([...selected, index]);
 		}
 	};
+	const fullCups = selected.length;
+	const totalCups = 8;
+
+	const percentage = (fullCups * 100 ) / totalCups;
+	;
+	
+	const bigCupStyle = {
+		height: `${percentage}%`
+	};
+
 	return (
 		<>
 			<div className="cup">
@@ -21,7 +32,7 @@ const Cups: React.FC = () => {
 					<small>Remaining</small>
 				</div>
 				<div className="percentage" id="percentage">
-					20%
+					{percentage}%
 				</div>
 			</div>
 			<p className="text">Select how many glasses of water you've had</p>
@@ -39,6 +50,7 @@ const Cups: React.FC = () => {
 							250 ml
 						</div>
 					))}
+					<BigCup style = {bigCupStyle} percentage={percentage}/>
 			</div>
 		</>
 	);
